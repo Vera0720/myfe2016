@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: 100px auto;
+        }
+        #nav li,#arrows span{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: white;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 20px;
+        }
+        #nav{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #nav li.selected{
+            background: orange;
+        }
+        #arrows{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #img img{
+            width: 400px;
+            height: 300px;
+        }
+        #img a{
+            display: none;
+        }
+        #img a.selected{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="img">
+            <a class="selected" href="#"><img src="picture/1.jpeg"></a>
+            <a href="#"><img src="picture/2.jpeg"></a>
+            <a href="#"><img src="picture/3.jpeg"></a>
+            <a href="#"><img src="picture/4.jpeg"></a>
+        </div>
+        <div id="arrows">
+            <span> &lt; </span>
+            <span> &gt; </span>
+        </div>
+
+    </div>
+</body>
+</html>
