@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
     <title>折叠菜单</title>
     <style>
@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
         }
-        ul{
+        ul,ol{
             list-style: none;
         }
         a{
@@ -18,14 +18,16 @@
             width: 200px;
         }
         #menu h3{
-            height: 40px;
+            width: 200px;
+            height: 50px;
             background: #000000;
-            color: #fff;
-            line-height: 40px;
+            color: #ffffff;
+            text-align: left;
+            line-height: 50px;
             cursor: pointer;
         }
         #menu .sub-menu{
-            border: 1px solid #000;
+            border: 1px solid #000000;
             display: none;
         }
     </style>
@@ -51,36 +53,27 @@
 </ul>
 <script>
     var oMenu = document.getElementById("menu");
-    var aH3 = oMenu.getElementsByTagName("h3");
-    for(var i=0; i<aH3.length; i++){
-      aH3[i].onclick = function(){
-          var oSubMenu = next(this);
-          if(oSubMenu.style.display == 'block'){
-              oSubMenu.style.display = 'none';
-          }else{
-              oSubMenu.style.display = 'block';
-      }
-      }
+    var aLi = oMenu.getElementsByTagName("li");
+    var aSubMenu = oMenu.getElementsByTagName('ul');
+    for(var i=0; i<aSubMenu.length; i++){
+        aSubMenu[i].onclick = function(e){
+            e.stopPropagation();
+        };
     }
-
-
-    function next(elem){
-        do{
-            elem = elem.nextSibling;
-        }while(elem && elem.nodeType !=1 );
-        return elem;
+    for(var i=0; i<aLi.length; i++){
+        if(aLi[i].className == "main-menu"){
+            aLi[i].bFlag = false;
+            aLi[i].onclick = function(){
+                var oSubMenu = this.getElementsByTagName("ul")[0];
+                if(this.bFlag){
+                    oSubMenu.style.display = "none";
+                }else {
+                    oSubMenu.style.display = "block";
+                }
+                this.bFlag = !this.bFlag;
+            };
+        }
     }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
