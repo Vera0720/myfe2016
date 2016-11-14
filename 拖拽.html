@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <script>
+        var oDiv = document.getElementById("div1");
+        var iDisX = iDisY = 0;
+        oDiv.onmousedown = function(e){
+            e = e || window.event;//能力检测,支持e就是true,不支持就是ie,用window.event
+            iDisX = e.clientX - oDiv.offsetLeft;
+            iDisY = e.clientY - oDiv.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var iLeft =  e.clientX - iDisX;
+                var iTop = e.clientY - iDisY;
+                if(iLeft<=20){
+                    iLeft = 0;
+                }
+                if(iLeft >= document.documentElement.clientWidth-oDiv.offsetWidth){
+                    iLeft = document.documentElement.clientWidth-oDiv.offsetWidth;
+                }
+                if(iTop <= 20){
+                    iTop = 0;
+                }
+                if(iTop >= document.documentElement.clientHeight-oDiv.offsetHeight){
+                    iTop=document.documentElement.clientHeight-oDiv.offsetHeight;
+                }
+                oDiv.style.left = iLeft + 'px';
+                oDiv.style.top = iTop + 'px';
+                //e.preventDefault();
+                //e.returnValue = false;//兼容性
+                return false;//阻止默认行为选中文本
+            };
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        }
+    </script>
+</body>
+</html>
