@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图无缝滚动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 2000px;
+            position: absolute;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+            display: block;
+            float: left;
+        }
+        #container ul{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #arrows{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #container li, #arrows span{
+            width: 20px;
+            height: 20px;
+            background: black;
+            color: #eeeeee;
+            float: left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+        }
+        #container li.selected{
+            background: orange;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <a href="#"><img src="picture/1.jpeg"></a>
+            <a href="#"><img src="picture/2.jpeg"></a>
+            <a href="#"><img src="picture/3.jpeg"></a>
+            <a href="#"><img src="picture/4.jpeg"></a>
+        </div>
+        <ul>
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <span id="prev"> &lt; </span>
+            <span id="next"> &gt; </span>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oContainer = document.getElementById("container");
+        var aLi = oContainer.getElementsByTagName("li");
+        var oContent = document.getElementById("content");
+        var aImg = oContent.getElementsByTagName("img");
+        var oPrev = document.getElementById("prev");
+        var oNext = document.getElementById("next");
+        var iImgWidth = aImg[0].offsetWidth;
+        var iNow = 0;
+        oContent.appendChild(aImg[0].cloneNode());
+        oContent.style.width = iImgWidth * aImg.length + 'px';
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onmouseover = function(){
+                changeImg(this.index);
+            }
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                iNow = aImg.length - 2;
+                oContent.style.left = -(aImg.length - 1) * iImgWidth +  "px";
+            }
+            changeImg(iNow);
+        };
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow == aImg.length){
+                iNow = 1;
+                oContent.style.left = 0;
+            }
+            changeImg(iNow);
+        };
+
+        function changeImg(idx){
+            iNow = idx;
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className = '';
+            }
+            aLi[iNow == aLi.length? 0 : iNow].className = 'selected';
+            animate(oContent,{
+                left: -idx * iImgWidth
+            });
+        }
+
+        var timer;
+        function run(){
+            timer = setInterval(function(){
+                oNext.onclick();
+            }, 2000);
+        }
+        run();
+
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        };
+        oContainer.onmouseout = function(){
+            run();
+        };
+    </script>
+</body>
+</html>
