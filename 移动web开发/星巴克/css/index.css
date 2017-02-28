@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+img{
+    border: 0;
+}
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+html{
+    font-size: 16px;
+    font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, ¶¬ÇàºÚÌå, Microsoft YaHei New, Microsoft Yahei, Î¢ÈíÑÅºÚ, ËÎÌå, SimSun, STXihei, »ªÎÄÏ¸ºÚ, sans-serif;
+}
+body{
+    height: 2000px;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top:0;
+    background: #ffffff;
+    z-index: 1;
+}
+#header div{
+    float: left;
+}
+#menu-icon{
+    width: 35%;
+    margin-left: 3%;
+    margin-top: 32px;
+    opacity: .7;
+}
+#menu-icon:hover{
+    opacity: 1;
+}
+#menu-icon a{
+    font-size: 0.8rem;
+    color: black;
+    margin-left: 7px;
+}
+#menu-icon img{
+    width: 40px;
+    height: 25px;
+}
+/*#mask{*/
+    /*background: #000;*/
+    /*opacity: .6;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*display: none;*/
+/*}*/
+/*#menu-list{*/
+    /*width: 0;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*background: #000;*/
+    /*transition: all 1s ease;*/
+/*}*/
+/*#side-bar:target #mask{*/
+    /*display: block;*/
+    /*z-index: 3;*/
+/*}*/
+/*#side-bar:target #menu-list{*/
+    /*width: 270px;*/
+    /*z-index: 3;*/
+/*}*/
+#logo{
+    width: 24%;
+    text-align: center;
+    margin-top: 14px;
+}
+#logo img{
+    width: 73px;
+    height: 73px;
+}
+#club-login{
+    width: 35%;
+    margin-right: 3%;
+    text-align: right;
+    margin-top: 30px;
+}
+#club-login a{
+    color: #b89f7a;
+    font-weight: bolder;
+}
+#club-login a:hover{
+    color: #967a50;
+}
+#club-login span {
+    color: #000000;
+    font-size: 1.125rem;
+}
+#banner{
+    width: 100%;
+    height: 531px;
+    position: relative;
+    margin-top: 100px;
+}
+#banner img{
+    width: 100%;
+}
+#know-more{
+    width: 100px;
+    height: 40px;
+    background: #b89f7a;
+    text-align: center;
+    line-height: 40px;
+    color: #FFFFFF;
+    font-weight: bolder;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+}
+#know-more:hover{
+    background: #967a50;
+}
+#ad{
+    background: #000;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+    position: absolute;
+    top: 20px;
+    right: 35px;
+}
+#splitter-bar{
+    height: 222px;
+    background: #001a11;
+}
+#club-card{
+    width: 100%;
+    height: 220px;
+    background: #000;
+}
+#club-card div{
+    float: left;
+}
+#card{
+    width: 32%;
+    height: 220px;
+    margin-left: 12%;
+    text-align: center;
+    line-height: 220px;
+    color: #FFFFFF;
+    font-size: 1.6rem;
+}
+#card-introduce{
+    width: 44%;
+    margin-right: 12%;
+    text-align: left;
+    margin-top: 35px;
+}
+#card-introduce p{
+    font-size: 1.6rem;
+    color: white;
+    font-weight: bolder;
+}
+#card-introduce span{
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: white;
+    font-weight: bolder;
+}
+#card-introduce .button{
+    width: 110px;
+    height: 50px;
+    background: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #a98e67;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #a98e67;
+    font-size: 1.125rem;
+    text-align: center;
+    line-height: 50px;
+}
+#card-introduce a{
+    color: #a98e67;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#show{
+    width: 100%;
+}
+#show img{
+    float: left;
+    width: 50%;
+}
+#QR-code{
+    float: left;
+    width: 100%;
+    height: 200px;
+    background: black;
+}
+#classical{
+    float: left;
+    width: 100%;
+    height: 745px;
+    background: #f5f5f5;
+}
+#intro{
+    text-align: center;
+}
+#intro h3{
+    font-size: 0.8rem;
+    color: #a98e67;
+    margin-top: 100px;
+}
+#intro h2{
+    font-size: 1.875rem;
+    font-weight: 400;
+    color: #000000;
+    margin-top: 20px;
+}
+#intro div{
+    width: 132px;
+    border-top: 1px;
+    border-color: #DDDDDD;
+    border-style: solid;
+    margin: 30px auto;
+}
+#intro p{
+    font-size: 1.125rem;
+    color: #000000;
+}
+#tran-img-container{
+    width: 1160px;
+    overflow: hidden;
+    margin: 50px auto;
+}
+#tran-img-content{
+    width: 2200px;
+
+}
+#tran-img-content img{
+    width: 280px;
+    height: 280px;
+    float: left;
+    margin-right: 20px;
+}
+#tran-img-button{
+    height: 10px;
+    width: 32px;
+    margin: 0 auto;
+}
+#tran-img-button div{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #8f8f8f;
+    float: left;
+    margin: 0 3px;
+}
+#tran-img-button .selected{
+    background: #ae9061;
+}
+#introduce{
+    width: 100%;
+    height: 608px;
+    float: left;
+    background: #000;
+}
+#introduce-img,#introduce-content{
+    float: left;
+    margin: 0 5%;
+}
+#introduce-img{
+    width: 40%;
+    margin-top: 60px;
+}
+#introduce-content{
+    width: 40%;
+    text-align: center;
+    margin-top: 120px;
+}
+#introduce-content h2{
+    font-size: 0.8rem;
+    color: #a98e67;
+}
+#introduce-content p{
+    font-size: 1.625rem;
+    color: #707070;
+    display: block;
+    margin-top: 30px;
+}
+#introduce-content .introduce-button{
+    width: 110px;
+    height: 50px;
+    background: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #a98e67;
+    margin-top: 50px;
+    margin-right: 10px;
+    color: #a98e67;
+    font-size: 1.125rem;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+}
+#introduce-content .button-box{
+    width: 260px;
+    height: 100px;
+    margin: 0 auto;
+}
+#footer{
+    width: 100%;
+    height: 140px;
+    background: #707070;
+    float: left;
+}
+#footer .footer-box{
+    margin-top: 45px;
+    margin-left: 50px;
+}
+#footer p{
+    font-size: 0.8rem;
+}
