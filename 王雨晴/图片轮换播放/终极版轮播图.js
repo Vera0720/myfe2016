@@ -2,9 +2,9 @@
 (function(){
     var oContainer = document.getElementById("container");
     var oBigBox = document.getElementById("big-box");
-    var aBigImg = oBigBox.getElementsByTagName("img");
+    var aBigImg = oBigBox.getElementsByTagName("旋转的按钮图片");
     var oSmallBox = document.getElementById("small-box");
-    var aSmallImg = oSmallBox.getElementsByTagName("img");
+    var aSmallImg = oSmallBox.getElementsByTagName("旋转的按钮图片");
     var oPrev = document.getElementById("prev");
     var oNext = document.getElementById("next");
     var oNowPage = document.getElementById("nowPage");
