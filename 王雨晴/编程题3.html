@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        var hash = [256];
+        var strs = [999];
+        for(var i=0;i<hash.length;i++){
+            hash[i] = -1;
+        }//给hash数组全部初始化为-1
+        for(var i = 0;i<strs.length;i++){
+            var ascii = str.charCodeAt(i);
+            if(ascii == -1){
+                hash[ascii] = i;
+            }
+            if( hash[ascii] >0){
+                hash[ascii] = -2
+            }
+        }
+        for(var i=0;i<hash.length;i++){
+            if(hash[i]>0){
+
+            }
+        }
+    </script>
+</body>
+</html>

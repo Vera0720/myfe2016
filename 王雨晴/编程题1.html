@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        function text(){
+            var arr = [];
+            for(var i=n;i<=m;i++){
+                arr.push(i+"");//把num转化为string
+            }
+
+            for(var i=0;i<arr.length;i++){
+                var newNum = arr[i].split("").reverse().join();
+                if(arr[i] == newNum){
+                    console.log(arr[i]);
+                }
+            }
+        }
+        text(100,1000);
+
+
+
+        function text2(n,m){
+            for(var i=n;i<=m;i++){
+                var nowNum = i+"";
+                var newNum = nowNum.split("").reverse().join("");
+                if(nowNum == newNum){
+                    console.log(nowNum);
+                }
+            }
+        }
+        text(100,1000);
+    </script>
+</body>
+</html>
