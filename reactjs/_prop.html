@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+
+
+        var SubMessagebox = React.createClass({ getDefaultProps : function(){ return { arr : [] }; }, render : function(){ var msg = []; this.props.arr.forEach(function(elem, index){ msg.push(
+        <div key={index}>{elem}</div>); }); return (
+        <div>
+            <div>{msg}</div>
+            <div>{this.props.str}</div>
+        </div>
+
+        ); } }); var Messagebox = React.createClass({ render : function(){ var data = "123"; var arr = [1, 2, 3]; return (
+        <div>
+            <SubMessagebox str={data} arr={arr}/>
+            <div>asdfas</div>
+        </div>
+        ); } }); ReactDOM.render(
+        <Messagebox/>, document.getElementById("app") );
+
+    </script>
+</body>
+
+</html>
