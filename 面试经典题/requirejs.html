@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../requirejs/require.js" data-main="index"></script>
+
+<script>
+    define(["a"], function(obj){
+
+    });
+
+    /*a.js*/
+    require(["jquery"], function($){
+
+        return obj;
+    });
+
+    /* sea.js */
+    define(function(require){
+        xcv
+        asdf
+        asf
+        asdfdsaf
+        var obj = require("a");
+    });
+/*
+AMD：依赖前置
+CMD：依赖就近
+* */
+//    require js和sea.js
+//    相同之处:都是模块加载器,倡导模块开发的理念
+//    不同之处require js预加载,遵循AMD规范,AMD推崇依赖前置
+//    Sea.js懒加载,遵循CMD规范,CMD推崇依赖就近,导致两者API不同;
+</script>
+</body>
+</html>
