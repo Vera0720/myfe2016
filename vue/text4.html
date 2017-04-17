@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<div v-show="show">-->
+        <!--aaaa-->
+    <!--</div>-->
+    <!--<div v-if="show">-->
+        <!--ssss-->
+    <!--</div>-->
+    <template v-if="show">
+        <h1>eee</h1>
+        <p>fff</p>
+    </template>
+    <!--<template>不影响dom结构-->
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            show:false//show虽然false但在dom结构里还有,v-if如果show为false，在dom结构里就没有
+        }
+    })
+</script>
+</body>
+</html>

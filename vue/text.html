@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="fn">click</button>
+    <div class="red" v-bind:class="{hide:isHide}"></div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isHide:true
+        },
+        methods:{
+          fn:function(){
+              this.isHide = !this.isHide;//这里的this永远指向vue
+          }
+        }
+    })
+</script>
+</body>
+</html>

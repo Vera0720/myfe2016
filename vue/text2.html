@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="fn">click</button>
+    <div v-bind:class="{red:isRed}"></div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isRed:true
+        },
+        methods:{
+            fn:function(){
+                this.isRed = !this.isRed;
+//              if(this.isRed == true){
+//                  this.isRed = false
+//              }else{
+//                  this.isRed = true
+//              }
+            }
+        }
+    })
+</script>
+</body>
+</html>
