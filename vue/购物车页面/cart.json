@@ -1,0 +1,42 @@
+{
+  "result":{
+    "totalMoney": 59,
+    "productList": [
+      {
+        "productID":111,
+        "productName":"黄鹤楼",
+        "productPrice":19,
+        "productQuentity":1,
+        "productImg":"img/1.jpg",
+        "parts":[
+          {
+            "partsID":10001,
+            "partsName":"打火机"
+          },
+          {
+            "partsID":10002,
+            "partsName":"苹果皮"
+          }
+        ]
+      },
+      {
+        "productID":222,
+        "productName":"加多宝",
+        "productPrice":8,
+        "productQuentity":5,
+        "productImg":"img/2.jpg",
+        "parts":[
+          {
+            "partsID":10001,
+            "partsName":"打火机"
+          },
+          {
+            "partsID":10002,
+            "partsName":"苹果皮"
+          }
+        ]
+      }
+    ]
+
+  }
+}

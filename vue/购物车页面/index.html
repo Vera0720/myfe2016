@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table,th,td{
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="boom">
+        <button @click="add1">add</button>
+        <table id="tbl">
+            <thead>
+            <tr>
+                <th></th>
+                <th>图片</th>
+                <th>信息</th>
+                <th>赠送</th>
+                <th>金额</th>
+                <th>数量</th>
+                <th>总金额</th>
+                <th>编辑</th>
+            </tr>
+            </thead>
+            <tbody v-for="product in productList">
+                <tr>
+                    <td><input type="checkbox" @click="addCart(product)"/></td>
+                    <td><img  v-bind:src="product.productImg" alt=""/></td>
+                    <td>{{product.productName}}</td>
+                    <td>
+                        <!--<ul>-->
+                        <!--<li>打火机</li>-->
+                        <!--<li>苹果皮</li>-->
+                        <!--</ul>-->
+                    </td>
+                    <td>{{product.productPrice}}</td>
+                    <td>
+                        <button @click="minusProduct(product)">-</button>
+                        <input type="text" v-bind:value="product.productQuentity"/>
+                        <button @click="addProduct(product)">+</button>
+                    </td>
+                    <td>{{product.productPrice * product.productQuentity}}</td>
+                    <td><button @click="deleteProduct(product)">删除</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <td colspan="6">
+                <input type="checkbox"/>全选
+            </td>
+            <td>
+                总计：{{totalPrice}}
+            </td>
+            <td>
+                <button>结账</button>
+            </td>
+            </tfoot>
+        </table>
+    </div>
+        <script src="vue.js"></script>
+        <script src="node_modules/axios/dist/axios.min.js"></script>
+        <script>
+            var vm = new Vue({
+                el:"#boom",
+                data:{
+                    productList:[],
+                    cartList:[],
+                    totalPrice: 0
+                },
+                methods:{
+                    add1:function(){
+                        var newProduct = {
+                                    "productID":333,
+                                    "productName":"黄鹤i楼",
+                                    "productPrice":9,
+                                    "productQuentity":1,
+                                    "productImg":"img/1.jpg"
+                                };
+                        this.productList.push(newProduct);
+                    },
+                    addCart:function(product){
+                        var index = this.cartList.indexOf(product);
+                        if(index == -1){
+                            this.cartList.push(product);
+                        }else{
+                            this.cartList.splice(index,1);
+                        }
+                        this.countTotalPrice();
+                    },
+                    countTotalPrice:function(){
+                        var _this= this;
+                        this.totalPrice = 0;
+                        this.cartList.forEach(function (product) {
+                            _this.totalPrice += product.productPrice * product.productQuentity});
+                    },
+                    minusProduct: function(product){
+                        if(product.productQuentity <= 1){
+                            product.productQuentity = 1;
+                        }else{
+                            product.productQuentity--;
+                        }
+                        this.countTotalPrice();
+                    },
+                    addProduct: function(product){
+                        product.productQuentity++;
+                        this.countTotalPrice();
+                    },
+                    deleteProduct: function (product) {
+                        var index = this.productList.indexOf(product);
+                        this.productList.splice(index,1);
+                        this.cartList.splice(index,1);
+                        this.countTotalPrice();
+                    }
+                },
+                mounted:function(){
+                    var _this = this;
+                    this.$nextTick(function(){
+                        axios.get('cart.json').then(function(res){
+                            _this.productList = res.data.result.productList;
+                        })
+                    })
+
+                }
+            })
+        </script>
+</body>
+</html>
