@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function choseSort(a){
+        for(var j=0;j< a.length-1;j++){
+            var index = j;
+            for(var i=j;i< a.length;i++){
+                if(a[i]<a[index]){
+                    index = i;
+                }
+            }
+            var temp = a[j];
+            a[j] = a[index];
+            a[index] = temp;
+        }
+        return a[j];
+    }
+    var a = [15,2,41,30,9,14];
+    choseSort(a);
+    for(var i=0;i< a.length;i++){
+        console.log(a[i]);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function mergeSort(arr){
+        if(arr.length<2){
+            return arr;
+        }
+        var middle = Math.floor(arr.length/2);
+        var left = arr.slice(0,middle);
+        var right = arr.slice(middle,arr.length);
+        return merge(mergeSort(left),mergeSort(right));
+    }
+    function merge(left,right){
+        var newArr = [];
+        while(left.length&&right.length){
+            if(left[0] <= right[0]){
+                newArr.push(left.shift());
+            }else{
+                newArr.push(right.shift());
+            }
+        }
+        while(left.length){
+            newArr.push(left.shift());
+        }
+        while(right.length){
+            newArr.push(right.shift());
+        }
+        return newArr;
+    }
+    var arr = [14,88,41,6,45,21];
+    console.log(mergeSort(arr));
+</script>
+</body>
+</html>

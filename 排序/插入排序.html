@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr=[77,56,3,8,4];
+    function compare(arr){
+        var newArr=[];
+        newArr.push(arr[0]);//77
+        for(var i=1;i<arr.length;i++){
+            newArr.push(arr[i]);//56---77 56
+            for(var j=newArr.length-2;j>=0;j--){
+                if(newArr[j+1]<newArr[j]){
+                    var temp = newArr[j];
+                    newArr[j] = newArr[j+1];
+                    newArr[j+1] = temp;//56 77
+                }
+            }
+        }
+        console.log(newArr);
+    }
+    compare(arr);
+</script>
+</body>
+</html>

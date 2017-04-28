@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function headAdjust(elements, pos, len){
+        var swap = elements[pos];
+        var child = pos * 2 + 1;
+        while(child < len){
+            if(child + 1 < len && elements[child] < elements[child + 1]){
+                child += 1;
+            }
+            if(elements[pos] < elements[child]){
+                elements[pos] = elements[child];
+                pos = child;
+                child = pos * 2 + 1;
+            }
+            else{
+                break;
+            }
+            elements[pos] = swap;
+        }
+    }
+    function buildHeap(elements){
+        for(var i=elements.length/2; i>=0; i--){
+            headAdjust(elements, i, elements.length);
+        }
+    }
+    function sort(elements){
+        buildHeap(elements);
+        for(var i=elements.length-1; i>0; i--){
+            var swap = elements[i];
+            elements[i] = elements[0];
+            elements[0] = swap;
+            headAdjust(elements, 0, i);
+        }
+    }
+    var elements = [33, 17, 25, 77, 42, 24, 59, 16, 1, 38];
+    sort(elements);
+    console.log(elements);
+</script>
+</body>
+</html>

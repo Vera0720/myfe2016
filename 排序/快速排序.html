@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function qSort(a,left,right){
+        var mid = a[left];
+        while(left<right){
+            while(a[right]>mid&&left<right)right--;
+            if(left<right)
+                a[left++]=a[right];
+            while(a[left]<mid&&left<right) left++;
+            if(left<right)
+                a[right--]=a[left];
+        }
+        a[left] = mid;
+        return left;
+    }
+    function quickSort(a,left,right){
+        if(left<right){
+            var mid = qSort(a,left,right);
+            quickSort(a,left,mid-1);
+            quickSort(a,mid+1,right);
+        }
+    }
+        var a=[25,79,44,11,36,42,8];
+        quickSort(a,0, a.length-1);
+        for(var i=0; i< a.length;i++){
+            console.log(a[i]);
+        }
+
+</script>
+</body>
+</html>
