@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="parent"></div>
+<button>ok</button>
+<script>
+    var obtn = document.getElementsByTagName('button')[0];
+    obtn.onclick = function(){
+        var oParent = document.getElementById('parent');
+        var div = document.createElement('div');
+        div.setAttribute('id','newDiv');
+        div.innerHTML = 'js1';
+        oParent.appendChild(div);
+    }
+</script>
+</body>
+</html>
