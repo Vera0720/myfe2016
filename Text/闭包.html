@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function aa(){
+        var result = new Array();
+        for(var i=0;i<10;i++){
+//            result[i] = function(){
+//                return i;
+//            };
+            result[i] = function(num){
+                return function(){
+                    return num;
+                };
+            }(i);
+        }
+        console.log(result);
+    }
+    aa();
+</script>
+</body>
+</html>
