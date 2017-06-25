@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="wrapper">
+    <p id="messageWindow" style="width: 400px;height: 100px;border: solid 1px #000 ">
+        <span id="loading">加载中</span>
+    </p>
+    <form action="" id="chatForm">
+        姓名：<input type="text" id="author" size="50"><br>
+        内容：<input type="text" id="msg" size="50"><br>
+        <input type="submit" value="发送"><br>
+    </form>
+</div>
+<script src="jquery/导航菜单/jquery-1.12.4.js"></script>
+<script>
+    var timestamp;
+    $(function () {
+        timestamp = 0;
+        updateMsg();
+        $("#chatForm").submit(function () {
+            $.post('backgroundend.php',{
+                message:$('#msg').val(),
+                name:$('#author').val(),
+                action:"postmsg",
+                time:'timestamp'
+            },function (xml) {
+                $("#msg").val("");
+                addMessages(xml);
+            });
+        return false;
+        })
+    })
+    function updateMsg() {
+        $.post("backgroundend.php",{time:timestamp},function (xml) {
+            $('#loading').remove();
+            addMessages(xml);
+        });
+        setTimeout('updateMsg()',4000);
+    }
+    function addMessages(xml) {
+        if($("status",xml).text() == "2") return;
+        timestamp = $("time",xml).text();
+        $("message",xml).each(function () {
+            var author = $("author",this).text();
+            var content = $("text",this).text();
+            var htmlcode = "<strong>"+ author +"</strong>:"+ content +"<br/>";
+            $("#messageWindow").prepend(htmlcode);
+        })
+    }
+</script>
+</body>
+</html>
